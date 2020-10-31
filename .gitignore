@@ -1,0 +1,7 @@
+*.so
+*.a
+*.o
+*.mk
+
+out-shared
+out-static
