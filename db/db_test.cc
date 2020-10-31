@@ -2,22 +2,22 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file. See the AUTHORS file for names of contributors.
 
-#include "leveldb/db.h"
-#include "leveldb/filter_policy.h"
+#include "novelsm/db.h"
+#include "novelsm/filter_policy.h"
 #include "db/db_impl.h"
 #include "db/filename.h"
 #include "db/version_set.h"
 #include "db/write_batch_internal.h"
-#include "leveldb/cache.h"
-#include "leveldb/env.h"
-#include "leveldb/table.h"
+#include "novelsm/cache.h"
+#include "novelsm/env.h"
+#include "novelsm/table.h"
 #include "util/hash.h"
 #include "util/logging.h"
 #include "util/mutexlock.h"
 #include "util/testharness.h"
 #include "util/testutil.h"
 
-namespace leveldb {
+namespace novelsm {
 
 static std::string RandomString(Random* rnd, int len) {
   std::string r;
@@ -383,7 +383,7 @@ class DBTest {
   int NumTableFilesAtLevel(int level) {
     std::string property;
     ASSERT_TRUE(
-        db_->GetProperty("leveldb.num-files-at-level" + NumberToString(level),
+        db_->GetProperty("novelsm.num-files-at-level" + NumberToString(level),
                          &property));
     return atoi(property.c_str());
   }
@@ -461,7 +461,7 @@ class DBTest {
 
   std::string DumpSSTableList() {
     std::string property;
-    db_->GetProperty("leveldb.sstables", &property);
+    db_->GetProperty("novelsm.sstables", &property);
     return property;
   }
 
@@ -567,7 +567,7 @@ TEST(DBTest, GetMemUsage) {
   do {
     ASSERT_OK(Put("foo", "v1"));
     std::string val;
-    ASSERT_TRUE(db_->GetProperty("leveldb.approximate-memory-usage", &val));
+    ASSERT_TRUE(db_->GetProperty("novelsm.approximate-memory-usage", &val));
     int mem_usage = atoi(val.c_str());
     ASSERT_GT(mem_usage, 0);
     ASSERT_LT(mem_usage, 5*1024*1024);
@@ -1397,7 +1397,7 @@ TEST(DBTest, L0_CompactionBug_Issue44_b) {
 TEST(DBTest, ComparatorCheck) {
   class NewComparator : public Comparator {
    public:
-    virtual const char* Name() const { return "leveldb.NewComparator"; }
+    virtual const char* Name() const { return "novelsm.NewComparator"; }
     virtual int Compare(const Slice& a, const Slice& b) const {
       return BytewiseComparator()->Compare(a, b);
     }
@@ -2092,7 +2092,7 @@ std::string MakeKey(unsigned int num) {
 }
 
 void BM_LogAndApply(int iters, int num_base_files) {
-  std::string dbname = test::TmpDir() + "/leveldb_test_benchmark";
+  std::string dbname = test::TmpDir() + "/novelsm_test_benchmark";
   DestroyDB(dbname, Options());
 
   DB* db = NULL;
@@ -2143,16 +2143,16 @@ void BM_LogAndApply(int iters, int num_base_files) {
           buf, iters, us, ((float)us) / iters);
 }
 
-}  // namespace leveldb
+}  // namespace novelsm
 
 int main(int argc, char** argv) {
   if (argc > 1 && std::string(argv[1]) == "--benchmark") {
-    leveldb::BM_LogAndApply(1000, 1);
-    leveldb::BM_LogAndApply(1000, 100);
-    leveldb::BM_LogAndApply(1000, 10000);
-    leveldb::BM_LogAndApply(100, 100000);
+    novelsm::BM_LogAndApply(1000, 1);
+    novelsm::BM_LogAndApply(1000, 100);
+    novelsm::BM_LogAndApply(1000, 10000);
+    novelsm::BM_LogAndApply(100, 100000);
     return 0;
   }
 
-  return leveldb::test::RunAllTests();
+  return novelsm::test::RunAllTests();
 }

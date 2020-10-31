@@ -7,7 +7,7 @@
 #include "port/port.h"
 #include "util/coding.h"
 
-namespace leveldb {
+namespace novelsm {
 
 static uint64_t PackSequenceAndType(uint64_t seq, ValueType t) {
   assert(seq <= kMaxSequenceNumber);
@@ -44,7 +44,7 @@ std::string InternalKey::DebugString() const {
 }
 
 const char* InternalKeyComparator::Name() const {
-  return "leveldb.InternalKeyComparator";
+  return "novelsm.InternalKeyComparator";
 }
 
 int InternalKeyComparator::Compare(const Slice& akey, const Slice& bkey) const {
@@ -137,4 +137,4 @@ LookupKey::LookupKey(const Slice& user_key, SequenceNumber s) {
   end_ = dst;
 }
 
-}  // namespace leveldb
+}  // namespace novelsm

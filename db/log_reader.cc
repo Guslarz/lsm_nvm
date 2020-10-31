@@ -5,11 +5,11 @@
 #include "db/log_reader.h"
 
 #include <stdio.h>
-#include "leveldb/env.h"
+#include "novelsm/env.h"
 #include "util/coding.h"
 #include "util/crc32c.h"
 
-namespace leveldb {
+namespace novelsm {
 namespace log {
 
 Reader::Reporter::~Reporter() {
@@ -275,4 +275,4 @@ unsigned int Reader::ReadPhysicalRecord(Slice* result) {
 }
 
 }  // namespace log
-}  // namespace leveldb
+}  // namespace novelsm

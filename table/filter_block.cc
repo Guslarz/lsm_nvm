@@ -4,10 +4,10 @@
 
 #include "table/filter_block.h"
 
-#include "leveldb/filter_policy.h"
+#include "novelsm/filter_policy.h"
 #include "util/coding.h"
 
-namespace leveldb {
+namespace novelsm {
 
 // See doc/table_format.txt for an explanation of the filter block format.
 

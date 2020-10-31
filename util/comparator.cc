@@ -4,12 +4,12 @@
 
 #include <algorithm>
 #include <stdint.h>
-#include "leveldb/comparator.h"
-#include "leveldb/slice.h"
+#include "novelsm/comparator.h"
+#include "novelsm/slice.h"
 #include "port/port.h"
 #include "util/logging.h"
 
-namespace leveldb {
+namespace novelsm {
 
 Comparator::~Comparator() { }
 
@@ -19,7 +19,7 @@ class BytewiseComparatorImpl : public Comparator {
   BytewiseComparatorImpl() { }
 
   virtual const char* Name() const {
-    return "leveldb.BytewiseComparator";
+    return "novelsm.BytewiseComparator";
   }
 
   virtual int Compare(const Slice& a, const Slice& b) const {
@@ -66,7 +66,7 @@ class BytewiseComparatorImpl : public Comparator {
 };
 }  // namespace
 
-static port::OnceType once = LEVELDB_ONCE_INIT;
+static port::OnceType once = NOVELSM_ONCE_INIT;
 static const Comparator* bytewise;
 
 static void InitModule() {
@@ -78,4 +78,4 @@ const Comparator* BytewiseComparator() {
   return bytewise;
 }
 
-}  // namespace leveldb
+}  // namespace novelsm

@@ -7,7 +7,7 @@
 #include "db/version_set.h"
 #include "util/coding.h"
 
-namespace leveldb {
+namespace novelsm {
 
 // Tag numbers for serialized VersionEdit.  These numbers are written to
 // disk and should not be changed.
@@ -293,4 +293,4 @@ std::string VersionEdit::DebugString() const {
   return r;
 }
 
-}  // namespace leveldb
+}  // namespace novelsm

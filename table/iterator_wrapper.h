@@ -2,13 +2,13 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file. See the AUTHORS file for names of contributors.
 
-#ifndef STORAGE_LEVELDB_TABLE_ITERATOR_WRAPPER_H_
-#define STORAGE_LEVELDB_TABLE_ITERATOR_WRAPPER_H_
+#ifndef STORAGE_NOVELSM_TABLE_ITERATOR_WRAPPER_H_
+#define STORAGE_NOVELSM_TABLE_ITERATOR_WRAPPER_H_
 
-#include "leveldb/iterator.h"
-#include "leveldb/slice.h"
+#include "novelsm/iterator.h"
+#include "novelsm/slice.h"
 
-namespace leveldb {
+namespace novelsm {
 
 // A internal wrapper class with an interface similar to Iterator that
 // caches the valid() and key() results for an underlying iterator.
@@ -61,6 +61,6 @@ class IteratorWrapper {
   Slice key_;
 };
 
-}  // namespace leveldb
+}  // namespace novelsm
 
-#endif  // STORAGE_LEVELDB_TABLE_ITERATOR_WRAPPER_H_
+#endif  // STORAGE_NOVELSM_TABLE_ITERATOR_WRAPPER_H_

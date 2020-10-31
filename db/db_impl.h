@@ -2,16 +2,16 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file. See the AUTHORS file for names of contributors.
 
-#ifndef STORAGE_LEVELDB_DB_DB_IMPL_H_
-#define STORAGE_LEVELDB_DB_DB_IMPL_H_
+#ifndef STORAGE_NOVELSM_DB_DB_IMPL_H_
+#define STORAGE_NOVELSM_DB_DB_IMPL_H_
 #include <unistd.h>
 #include <deque>
 #include <set>
 #include "db/dbformat.h"
 #include "db/log_writer.h"
 #include "db/snapshot.h"
-#include "leveldb/db.h"
-#include "leveldb/env.h"
+#include "novelsm/db.h"
+#include "novelsm/env.h"
 #include "port/port.h"
 #include "port/thread_annotations.h"
 #include "db/memtable.h"
@@ -21,7 +21,7 @@
 #define NUMEMTABLE_NVM 10
 
 
-namespace leveldb {
+namespace novelsm {
 
 class MemTable;
 class TableCache;
@@ -129,7 +129,7 @@ public:
         bool done;
         Version* current;
         void *stats;
-        //const leveldb::ReadOptions *myoptions;
+        //const novelsm::ReadOptions *myoptions;
     }read_struct;
 
     //NoveLSM Swap/Alternate between NVM and DRAM arena
@@ -310,6 +310,6 @@ extern Options SanitizeOptions(const std::string& db,
         const InternalFilterPolicy* ipolicy,
         const Options& src);
 
-}  // namespace leveldb
+}  // namespace novelsm
 
-#endif  // STORAGE_LEVELDB_DB_DB_IMPL_H_
+#endif  // STORAGE_NOVELSM_DB_DB_IMPL_H_

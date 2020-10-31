@@ -16,6 +16,7 @@
 #include <string>
 #include "novelsm/slice.h"
 #include <pthread.h>
+
 namespace novelsm {
 
 class Status {

@@ -52,7 +52,7 @@ TESTS = \
 
 UTILS = \
 	db/db_bench \
-	db/leveldbutil
+	db/novelsmutil
 
 # Put the object files in a subdirectory, but the application at the top of the object dir.
 PROGNAMES := $(notdir $(TESTS) $(UTILS))
@@ -112,7 +112,7 @@ default: all
 # Should we build shared libraries?
 ifneq ($(PLATFORM_SHARED_EXT),)
 
-# Many leveldb test apps use non-exported API's. Only build a subset for testing.
+# Many novelsm test apps use non-exported API's. Only build a subset for testing.
 SHARED_ALLOBJS := $(SHARED_LIBOBJECTS) $(SHARED_MEMENVOBJECTS) $(TESTHARNESS)
 
 ifneq ($(PLATFORM_SHARED_VERSIONED),true)
@@ -307,8 +307,8 @@ $(STATIC_OUTDIR)/db_bench_sqlite3:doc/bench/db_bench_sqlite3.cc $(STATIC_LIBOBJE
 $(STATIC_OUTDIR)/db_bench_tree_db:doc/bench/db_bench_tree_db.cc $(STATIC_LIBOBJECTS) $(TESTUTIL)
 	$(CXX) $(LDFLAGS) $(CXXFLAGS) doc/bench/db_bench_tree_db.cc $(STATIC_LIBOBJECTS) $(TESTUTIL) -o $@ -lkyotocabinet $(LIBS)
 
-$(STATIC_OUTDIR)/leveldbutil:db/leveldbutil.cc $(STATIC_LIBOBJECTS)
-	$(CXX) $(LDFLAGS) $(CXXFLAGS) db/leveldbutil.cc $(STATIC_LIBOBJECTS) -o $@ $(LIBS)
+$(STATIC_OUTDIR)/novelsmutil:db/novelsmutil.cc $(STATIC_LIBOBJECTS)
+	$(CXX) $(LDFLAGS) $(CXXFLAGS) db/novelsmutil.cc $(STATIC_LIBOBJECTS) -o $@ $(LIBS)
 
 $(STATIC_OUTDIR)/arena_test:util/arena_test.cc $(STATIC_LIBOBJECTS) $(TESTHARNESS)
 	$(CXX) $(LDFLAGS) $(CXXFLAGS) util/arena_test.cc $(STATIC_LIBOBJECTS) $(TESTHARNESS) -o $@ $(LIBS)

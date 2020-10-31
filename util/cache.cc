@@ -6,12 +6,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "leveldb/cache.h"
+#include "novelsm/cache.h"
 #include "port/port.h"
 #include "util/hash.h"
 #include "util/mutexlock.h"
 
-namespace leveldb {
+namespace novelsm {
 
 Cache::~Cache() {
 }
@@ -352,4 +352,4 @@ Cache* NewLRUCache(size_t capacity) {
   return new ShardedLRUCache(capacity);
 }
 
-}  // namespace leveldb
+}  // namespace novelsm

@@ -2,10 +2,10 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file. See the AUTHORS file for names of contributors.
 
-#ifndef STORAGE_LEVELDB_TABLE_MERGER_H_
-#define STORAGE_LEVELDB_TABLE_MERGER_H_
+#ifndef STORAGE_NOVELSM_TABLE_MERGER_H_
+#define STORAGE_NOVELSM_TABLE_MERGER_H_
 
-namespace leveldb {
+namespace novelsm {
 
 class Comparator;
 class Iterator;
@@ -21,6 +21,6 @@ class Iterator;
 extern Iterator* NewMergingIterator(
     const Comparator* comparator, Iterator** children, int n);
 
-}  // namespace leveldb
+}  // namespace novelsm
 
-#endif  // STORAGE_LEVELDB_TABLE_MERGER_H_
+#endif  // STORAGE_NOVELSM_TABLE_MERGER_H_

@@ -4,8 +4,8 @@
 
 #include "helpers/memenv/memenv.h"
 
-#include "leveldb/env.h"
-#include "leveldb/status.h"
+#include "novelsm/env.h"
+#include "novelsm/status.h"
 #include "port/port.h"
 #include "util/mutexlock.h"
 #include <map>
@@ -13,7 +13,7 @@
 #include <string>
 #include <vector>
 
-namespace leveldb {
+namespace novelsm {
 
 namespace {
 
@@ -395,4 +395,4 @@ Env* NewMemEnv(Env* base_env) {
   return new InMemoryEnv(base_env);
 }
 
-}  // namespace leveldb
+}  // namespace novelsm

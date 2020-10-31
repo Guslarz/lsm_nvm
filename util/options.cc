@@ -2,12 +2,12 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file. See the AUTHORS file for names of contributors.
 
-#include "leveldb/options.h"
+#include "novelsm/options.h"
 
-#include "leveldb/comparator.h"
-#include "leveldb/env.h"
+#include "novelsm/comparator.h"
+#include "novelsm/env.h"
 
-namespace leveldb {
+namespace novelsm {
 
 Options::Options()
     : comparator(BytewiseComparator()),
@@ -28,4 +28,4 @@ Options::Options()
       filter_policy(NULL) {
 }
 
-}  // namespace leveldb
+}  // namespace novelsm

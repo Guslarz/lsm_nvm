@@ -5,11 +5,11 @@
 #include "db/table_cache.h"
 
 #include "db/filename.h"
-#include "leveldb/env.h"
-#include "leveldb/table.h"
+#include "novelsm/env.h"
+#include "novelsm/table.h"
 #include "util/coding.h"
 
-namespace leveldb {
+namespace novelsm {
 
 struct TableAndFile {
   RandomAccessFile* file;
@@ -124,4 +124,4 @@ void TableCache::Evict(uint64_t file_number) {
   cache_->Erase(Slice(buf, sizeof(buf)));
 }
 
-}  // namespace leveldb
+}  // namespace novelsm

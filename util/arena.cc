@@ -15,7 +15,7 @@
 static const long kBlockSize = 4096;
 static int mmap_count = 0;
 
-namespace leveldb {
+namespace novelsm {
 Arena::Arena()
 : memory_usage_(0)
 {
@@ -308,4 +308,4 @@ char* ArenaNVM::AllocateAligned(size_t bytes) {
     return NULL;
 }
 
-}  // namespace leveldb
+}  // namespace novelsm

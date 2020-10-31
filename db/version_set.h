@@ -12,8 +12,8 @@
 // Version,VersionSet are thread-compatible, but require external
 // synchronization on all accesses.
 
-#ifndef STORAGE_LEVELDB_DB_VERSION_SET_H_
-#define STORAGE_LEVELDB_DB_VERSION_SET_H_
+#ifndef STORAGE_NOVELSM_DB_VERSION_SET_H_
+#define STORAGE_NOVELSM_DB_VERSION_SET_H_
 
 #include <map>
 #include <set>
@@ -23,7 +23,7 @@
 #include "port/port.h"
 #include "port/thread_annotations.h"
 
-namespace leveldb {
+namespace novelsm {
 
 namespace log { class Writer; }
 
@@ -405,6 +405,6 @@ class Compaction {
   size_t level_ptrs_[config::kNumLevels];
 };
 
-}  // namespace leveldb
+}  // namespace novelsm
 
-#endif  // STORAGE_LEVELDB_DB_VERSION_SET_H_
+#endif  // STORAGE_NOVELSM_DB_VERSION_SET_H_

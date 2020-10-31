@@ -2,8 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file. See the AUTHORS file for names of contributors.
 
-#ifndef STORAGE_LEVELDB_UTIL_ARENA_H_
-#define STORAGE_LEVELDB_UTIL_ARENA_H_
+#ifndef STORAGE_NOVELSM_UTIL_ARENA_H_
+#define STORAGE_NOVELSM_UTIL_ARENA_H_
 
 #include <vector>
 #include <assert.h>
@@ -11,7 +11,7 @@
 #include <stdint.h>
 #include "port/port.h"
 
-namespace leveldb {
+namespace novelsm {
 
 //Overprovision
 #define MEM_THRESH 1.5
@@ -125,6 +125,6 @@ inline char* ArenaNVM::Allocate(size_t bytes) {
     return AllocateFallbackNVM(bytes);
 }
 
-}  // namespace leveldb
+}  // namespace novelsm
 
-#endif  // STORAGE_LEVELDB_UTIL_ARENA_H_
+#endif  // STORAGE_NOVELSM_UTIL_ARENA_H_

@@ -2,15 +2,15 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file. See the AUTHORS file for names of contributors.
 
-#include "leveldb/db.h"
+#include "novelsm/db.h"
 
 #include "db/memtable.h"
 #include "db/write_batch_internal.h"
-#include "leveldb/env.h"
+#include "novelsm/env.h"
 #include "util/logging.h"
 #include "util/testharness.h"
 
-namespace leveldb {
+namespace novelsm {
 
 static std::string PrintContents(WriteBatch* b) {
   InternalKeyComparator cmp(BytewiseComparator());
@@ -113,8 +113,8 @@ TEST(WriteBatchTest, Append) {
             PrintContents(&b1));
 }
 
-}  // namespace leveldb
+}  // namespace novelsm
 
 int main(int argc, char** argv) {
-  return leveldb::test::RunAllTests();
+  return novelsm::test::RunAllTests();
 }

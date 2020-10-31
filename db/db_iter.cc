@@ -7,14 +7,14 @@
 #include "db/filename.h"
 #include "db/db_impl.h"
 #include "db/dbformat.h"
-#include "leveldb/env.h"
-#include "leveldb/iterator.h"
+#include "novelsm/env.h"
+#include "novelsm/iterator.h"
 #include "port/port.h"
 #include "util/logging.h"
 #include "util/mutexlock.h"
 #include "util/random.h"
 
-namespace leveldb {
+namespace novelsm {
 
 #if 0
 static void DumpInternalIter(Iterator* iter) {
@@ -318,4 +318,4 @@ Iterator* NewDBIterator(
   return new DBIter(db, user_key_comparator, internal_iter, sequence, seed);
 }
 
-}  // namespace leveldb
+}  // namespace novelsm

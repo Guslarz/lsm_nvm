@@ -2,16 +2,16 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file. See the AUTHORS file for names of contributors.
 
-#include "leveldb/db.h"
+#include "novelsm/db.h"
 
 #include <errno.h>
 #include <fcntl.h>
 #include <sys/stat.h>
 #include <sys/types.h>
-#include "leveldb/cache.h"
-#include "leveldb/env.h"
-#include "leveldb/table.h"
-#include "leveldb/write_batch.h"
+#include "novelsm/cache.h"
+#include "novelsm/env.h"
+#include "novelsm/table.h"
+#include "novelsm/write_batch.h"
 #include "db/db_impl.h"
 #include "db/filename.h"
 #include "db/log_format.h"
@@ -20,7 +20,7 @@
 #include "util/testharness.h"
 #include "util/testutil.h"
 
-namespace leveldb {
+namespace novelsm {
 
 static const int kValueSize = 1000;
 
@@ -64,7 +64,7 @@ class CorruptionTest {
   void RepairDB() {
     delete db_;
     db_ = NULL;
-    ASSERT_OK(::leveldb::RepairDB(dbname_, options_));
+    ASSERT_OK(::novelsm::RepairDB(dbname_, options_));
   }
 
   void Build(int n) {
@@ -320,7 +320,7 @@ TEST(CorruptionTest, CompactionInputError) {
   DBImpl* dbi = reinterpret_cast<DBImpl*>(db_);
   dbi->TEST_CompactMemTable();
   const int last = config::kMaxMemCompactLevel;
-  ASSERT_EQ(1, Property("leveldb.num-files-at-level" + NumberToString(last)));
+  ASSERT_EQ(1, Property("novelsm.num-files-at-level" + NumberToString(last)));
 
   Corrupt(kTableFile, 100, 1);
   Check(5, 9);
@@ -367,8 +367,8 @@ TEST(CorruptionTest, UnrelatedKeys) {
   ASSERT_EQ(Value(1000, &tmp2).ToString(), v);
 }
 
-}  // namespace leveldb
+}  // namespace novelsm
 
 int main(int argc, char** argv) {
-  return leveldb::test::RunAllTests();
+  return novelsm::test::RunAllTests();
 }

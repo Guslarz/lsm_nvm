@@ -6,7 +6,7 @@
 
 #include "util/testharness.h"
 
-namespace leveldb {
+namespace novelsm {
 
 class Coding { };
 
@@ -189,8 +189,8 @@ TEST(Coding, Strings) {
   ASSERT_EQ("", input.ToString());
 }
 
-}  // namespace leveldb
+}  // namespace novelsm
 
 int main(int argc, char** argv) {
-  return leveldb::test::RunAllTests();
+  return novelsm::test::RunAllTests();
 }

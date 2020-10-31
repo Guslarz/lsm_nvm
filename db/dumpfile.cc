@@ -8,15 +8,15 @@
 #include "db/log_reader.h"
 #include "db/version_edit.h"
 #include "db/write_batch_internal.h"
-#include "leveldb/env.h"
-#include "leveldb/iterator.h"
-#include "leveldb/options.h"
-#include "leveldb/status.h"
-#include "leveldb/table.h"
-#include "leveldb/write_batch.h"
+#include "novelsm/env.h"
+#include "novelsm/iterator.h"
+#include "novelsm/options.h"
+#include "novelsm/status.h"
+#include "novelsm/table.h"
+#include "novelsm/write_batch.h"
 #include "util/logging.h"
 
-namespace leveldb {
+namespace novelsm {
 
 namespace {
 
@@ -222,4 +222,4 @@ Status DumpFile(Env* env, const std::string& fname, WritableFile* dst) {
   return Status::InvalidArgument(fname + ": not a dump-able file type");
 }
 
-}  // namespace leveldb
+}  // namespace novelsm

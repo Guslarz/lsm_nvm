@@ -4,8 +4,8 @@ export TEST_TMPDIR="/mnt/pmemdir"
 
 SETUP() {
     cd $NOVELSMSRC
-    #git clone https://github.com/google/leveldb
-    cd $NOVELSMSRC/leveldb-1.20
+    #git clone https://github.com/google/novelsm
+    cd $NOVELSMSRC/novelsm-1.20
 }
 
 MAKE() {

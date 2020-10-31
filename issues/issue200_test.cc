@@ -6,16 +6,16 @@
 // to forward, the current key can be yielded unexpectedly if a new
 // mutation has been added just before the current key.
 
-#include "leveldb/db.h"
+#include "novelsm/db.h"
 #include "util/testharness.h"
 
-namespace leveldb {
+namespace novelsm {
 
 class Issue200 { };
 
 TEST(Issue200, Test) {
   // Get rid of any state from an old run.
-  std::string dbpath = test::TmpDir() + "/leveldb_issue200_test";
+  std::string dbpath = test::TmpDir() + "/novelsm_issue200_test";
   DestroyDB(dbpath, Options());
 
   DB *db;
@@ -52,8 +52,8 @@ TEST(Issue200, Test) {
   DestroyDB(dbpath, options);
 }
 
-}  // namespace leveldb
+}  // namespace novelsm
 
 int main(int argc, char** argv) {
-  return leveldb::test::RunAllTests();
+  return novelsm::test::RunAllTests();
 }

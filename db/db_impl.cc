@@ -23,11 +23,11 @@
 #include "db/table_cache.h"
 #include "db/version_set.h"
 #include "db/write_batch_internal.h"
-#include "leveldb/db.h"
-#include "leveldb/env.h"
-#include "leveldb/status.h"
-#include "leveldb/table.h"
-#include "leveldb/table_builder.h"
+#include "novelsm/db.h"
+#include "novelsm/env.h"
+#include "novelsm/status.h"
+#include "novelsm/table.h"
+#include "novelsm/table_builder.h"
 #include "port/port.h"
 #include "table/block.h"
 #include "table/merger.h"
@@ -46,7 +46,7 @@
 
 using namespace std;
 
-namespace leveldb {
+namespace novelsm {
 
 const int kNumNonTableCacheFiles = 10;
 bool kCheckCond = 0;
@@ -66,7 +66,7 @@ bool predict_on = false;
  */
 MemTable *g_imm;
 MemTable *g_mem;
-const leveldb::ReadOptions g_options;
+const novelsm::ReadOptions g_options;
 bool mem_found = false;
 bool sstable_found = false;
 bool imm_found = false;
@@ -408,7 +408,7 @@ Status DBImpl::Recover(VersionEdit* edit, bool *save_manifest) {
     //
     // Note that PrevLogNumber() is no longer used, but we pay
     // attention to it in case we are recovering a database
-    // produced by an older version of leveldb.
+    // produced by an older version of novelsm.
     const uint64_t min_log = versions_->LogNumber();
 
     //NoveLSM:Get the minimum NVM memtable map number
@@ -1333,7 +1333,7 @@ void* DBImpl::read_thread(void *arg) {
         Version::GetStats *stats;
         stats = (Version::GetStats *)str->stats;
         if(current){
-            Status s = current->Get((const leveldb::ReadOptions&)g_options,
+            Status s = current->Get((const novelsm::ReadOptions&)g_options,
                     *lkey, value, stats);
             if(s.ok()) {
                 kCheckCond = 1;
@@ -1856,7 +1856,7 @@ bool DBImpl::GetProperty(const Slice& property, std::string* value) {
 
     MutexLock l(&mutex_);
     Slice in = property;
-    Slice prefix("leveldb.");
+    Slice prefix("novelsm.");
     if (!in.starts_with(prefix)) return false;
     in.remove_prefix(prefix.size());
 
@@ -2080,4 +2080,4 @@ Status DB::Open(const Options& options, const std::string& dbname_disk,
         return result;
     }
 
-}  // namespace leveldb
+}  // namespace novelsm

@@ -4,13 +4,13 @@
 
 #include "db/log_reader.h"
 #include "db/log_writer.h"
-#include "leveldb/env.h"
+#include "novelsm/env.h"
 #include "util/coding.h"
 #include "util/crc32c.h"
 #include "util/random.h"
 #include "util/testharness.h"
 
-namespace leveldb {
+namespace novelsm {
 namespace log {
 
 // Construct a string of the specified length made out of the supplied
@@ -562,8 +562,8 @@ TEST(LogTest, ReadPastEnd) {
 }
 
 }  // namespace log
-}  // namespace leveldb
+}  // namespace novelsm
 
 int main(int argc, char** argv) {
-  return leveldb::test::RunAllTests();
+  return novelsm::test::RunAllTests();
 }

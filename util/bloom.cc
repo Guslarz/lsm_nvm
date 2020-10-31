@@ -2,12 +2,12 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file. See the AUTHORS file for names of contributors.
 
-#include "leveldb/filter_policy.h"
+#include "novelsm/filter_policy.h"
 
-#include "leveldb/slice.h"
+#include "novelsm/slice.h"
 #include "util/hash.h"
 
-namespace leveldb {
+namespace novelsm {
 
 namespace {
 static uint32_t BloomHash(const Slice& key) {
@@ -29,7 +29,7 @@ class BloomFilterPolicy : public FilterPolicy {
   }
 
   virtual const char* Name() const {
-    return "leveldb.BuiltinBloomFilter2";
+    return "novelsm.BuiltinBloomFilter2";
   }
 
   virtual void CreateFilter(const Slice* keys, int n, std::string* dst) const {
@@ -92,4 +92,4 @@ const FilterPolicy* NewBloomFilterPolicy(int bits_per_key) {
   return new BloomFilterPolicy(bits_per_key);
 }
 
-}  // namespace leveldb
+}  // namespace novelsm

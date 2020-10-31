@@ -2,14 +2,14 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file. See the AUTHORS file for names of contributors.
 
-#include "leveldb/filter_policy.h"
+#include "novelsm/filter_policy.h"
 
 #include "util/coding.h"
 #include "util/logging.h"
 #include "util/testharness.h"
 #include "util/testutil.h"
 
-namespace leveldb {
+namespace novelsm {
 
 static const int kVerbose = 1;
 
@@ -155,8 +155,8 @@ TEST(BloomTest, VaryingLengths) {
 
 // Different bits-per-byte
 
-}  // namespace leveldb
+}  // namespace novelsm
 
 int main(int argc, char** argv) {
-  return leveldb::test::RunAllTests();
+  return novelsm::test::RunAllTests();
 }

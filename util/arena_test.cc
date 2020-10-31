@@ -7,7 +7,7 @@
 #include "util/random.h"
 #include "util/testharness.h"
 
-namespace leveldb {
+namespace novelsm {
 
 class ArenaTest { };
 
@@ -61,8 +61,8 @@ TEST(ArenaTest, Simple) {
   }
 }
 
-}  // namespace leveldb
+}  // namespace novelsm
 
 int main(int argc, char** argv) {
-  return leveldb::test::RunAllTests();
+  return novelsm::test::RunAllTests();
 }

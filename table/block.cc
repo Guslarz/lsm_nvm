@@ -8,12 +8,12 @@
 
 #include <vector>
 #include <algorithm>
-#include "leveldb/comparator.h"
+#include "novelsm/comparator.h"
 #include "table/format.h"
 #include "util/coding.h"
 #include "util/logging.h"
 
-namespace leveldb {
+namespace novelsm {
 
 inline uint32_t Block::NumRestarts() const {
   assert(size_ >= sizeof(uint32_t));
@@ -265,4 +265,4 @@ Iterator* Block::NewIterator(const Comparator* cmp) {
   }
 }
 
-}  // namespace leveldb
+}  // namespace novelsm

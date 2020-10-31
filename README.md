@@ -55,11 +55,11 @@ Also, ensure that cmake 3.9 or greater is enabled.</br>
   # If the system's cmake version is less than 3.9
   $ scripts/install_cmake.sh
 
-  $ scripts/setup_vanilla_leveldb.sh
+  $ scripts/setup_vanilla_novelsm.sh
 ```
 Run the vanilla LevelDB benchmark
 ```
-  $ scripts/run_vanilla_leveldb.sh
+  $ scripts/run_vanilla_novelsm.sh
 ```
 
 ### For using Intel's PMDK APIs

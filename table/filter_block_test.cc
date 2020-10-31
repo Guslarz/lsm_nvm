@@ -4,14 +4,14 @@
 
 #include "table/filter_block.h"
 
-#include "leveldb/filter_policy.h"
+#include "novelsm/filter_policy.h"
 #include "util/coding.h"
 #include "util/hash.h"
 #include "util/logging.h"
 #include "util/testharness.h"
 #include "util/testutil.h"
 
-namespace leveldb {
+namespace novelsm {
 
 // For testing: emit an array with one hash value per key
 class TestHashFilter : public FilterPolicy {
@@ -121,8 +121,8 @@ TEST(FilterBlockTest, MultiChunk) {
   ASSERT_TRUE(! reader.KeyMayMatch(9000, "bar"));
 }
 
-}  // namespace leveldb
+}  // namespace novelsm
 
 int main(int argc, char** argv) {
-  return leveldb::test::RunAllTests();
+  return novelsm::test::RunAllTests();
 }

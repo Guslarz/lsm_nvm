@@ -2,16 +2,16 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file. See the AUTHORS file for names of contributors.
 
-#ifndef STORAGE_LEVELDB_TABLE_FORMAT_H_
-#define STORAGE_LEVELDB_TABLE_FORMAT_H_
+#ifndef STORAGE_NOVELSM_TABLE_FORMAT_H_
+#define STORAGE_NOVELSM_TABLE_FORMAT_H_
 
 #include <string>
 #include <stdint.h>
-#include "leveldb/slice.h"
-#include "leveldb/status.h"
-#include "leveldb/table_builder.h"
+#include "novelsm/slice.h"
+#include "novelsm/status.h"
+#include "novelsm/table_builder.h"
 
-namespace leveldb {
+namespace novelsm {
 
 class Block;
 class RandomAccessFile;
@@ -76,7 +76,7 @@ class Footer {
 };
 
 // kTableMagicNumber was picked by running
-//    echo http://code.google.com/p/leveldb/ | sha1sum
+//    echo http://code.google.com/p/novelsm/ | sha1sum
 // and taking the leading 64 bits.
 static const uint64_t kTableMagicNumber = 0xdb4775248b80fb57ull;
 
@@ -103,6 +103,6 @@ inline BlockHandle::BlockHandle()
       size_(~static_cast<uint64_t>(0)) {
 }
 
-}  // namespace leveldb
+}  // namespace novelsm
 
-#endif  // STORAGE_LEVELDB_TABLE_FORMAT_H_
+#endif  // STORAGE_NOVELSM_TABLE_FORMAT_H_

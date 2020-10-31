@@ -2,17 +2,17 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file. See the AUTHORS file for names of contributors.
 
-#include "leveldb/table.h"
+#include "novelsm/table.h"
 
 #include <map>
 #include <string>
 #include "db/dbformat.h"
 #include "db/memtable.h"
 #include "db/write_batch_internal.h"
-#include "leveldb/db.h"
-#include "leveldb/env.h"
-#include "leveldb/iterator.h"
-#include "leveldb/table_builder.h"
+#include "novelsm/db.h"
+#include "novelsm/env.h"
+#include "novelsm/iterator.h"
+#include "novelsm/table_builder.h"
 #include "table/block.h"
 #include "table/block_builder.h"
 #include "table/format.h"
@@ -20,7 +20,7 @@
 #include "util/testharness.h"
 #include "util/testutil.h"
 
-namespace leveldb {
+namespace novelsm {
 
 // Return reverse of "key".
 // Used to test non-lexicographic comparators.
@@ -38,7 +38,7 @@ namespace {
 class ReverseKeyComparator : public Comparator {
  public:
   virtual const char* Name() const {
-    return "leveldb.ReverseBytewiseComparator";
+    return "novelsm.ReverseBytewiseComparator";
   }
 
   virtual int Compare(const Slice& a, const Slice& b) const {
@@ -653,8 +653,8 @@ TEST(Harness, Empty) {
   }
 }
 
-// Special test for a block with no restart entries.  The C++ leveldb
-// code never generates such blocks, but the Java version of leveldb
+// Special test for a block with no restart entries.  The C++ novelsm
+// code never generates such blocks, but the Java version of novelsm
 // seems to.
 TEST(Harness, ZeroRestartPointsInBlock) {
   char data[sizeof(uint32_t)];
@@ -750,7 +750,7 @@ TEST(Harness, RandomizedLongDB) {
   for (int level = 0; level < config::kNumLevels; level++) {
     std::string value;
     char name[100];
-    snprintf(name, sizeof(name), "leveldb.num-files-at-level%d", level);
+    snprintf(name, sizeof(name), "novelsm.num-files-at-level%d", level);
     ASSERT_TRUE(db()->GetProperty(name, &value));
     files += atoi(value.c_str());
   }
@@ -861,8 +861,8 @@ TEST(TableTest, ApproximateOffsetOfCompressed) {
   ASSERT_TRUE(Between(c.ApproximateOffsetOf("xyz"),    4000,   6000));
 }
 
-}  // namespace leveldb
+}  // namespace novelsm
 
 int main(int argc, char** argv) {
-  return leveldb::test::RunAllTests();
+  return novelsm::test::RunAllTests();
 }

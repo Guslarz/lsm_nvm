@@ -1,4 +1,4 @@
-// Copyright (c) 2011 The LevelDB Authors. All rights reserved.
+// Copyright (c) 2011 The novelsm Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file. See the AUTHORS file for names of contributors.
 
@@ -161,4 +161,4 @@ Status RepairDB(const std::string& dbname, const Options& options);
 
 }  // namespace novelsm
 
-#endif  // STORAGE_NOVELSM_INCLUDE_DB_H_
+#endif  // STORAGE_novelsm_INCLUDE_DB_H_

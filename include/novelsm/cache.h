@@ -1,4 +1,4 @@
-// Copyright (c) 2011 The LevelDB Authors. All rights reserved.
+// Copyright (c) 2011 The NOVELSM Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file. See the AUTHORS file for names of contributors.
 //
@@ -85,7 +85,7 @@ class Cache {
   // applications may wish to call this method to reduce memory usage.
   // Default implementation of Prune() does nothing.  Subclasses are strongly
   // encouraged to override the default implementation.  A future release of
-  // novelsm may change Prune() to a pure abstract method.
+  // NOVELSM may change Prune() to a pure abstract method.
   virtual void Prune() {}
 
   // Return an estimate of the combined charges of all elements stored in the
@@ -105,6 +105,6 @@ class Cache {
   void operator=(const Cache&);
 };
 
-}  // namespace novelsm
+}  // namespace NOVELSM
 
 #endif  // STORAGE_NOVELSM_INCLUDE_CACHE_H_

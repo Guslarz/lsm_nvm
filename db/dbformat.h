@@ -2,19 +2,19 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file. See the AUTHORS file for names of contributors.
 
-#ifndef STORAGE_LEVELDB_DB_DBFORMAT_H_
-#define STORAGE_LEVELDB_DB_DBFORMAT_H_
+#ifndef STORAGE_NOVELSM_DB_DBFORMAT_H_
+#define STORAGE_NOVELSM_DB_DBFORMAT_H_
 
 #include <stdio.h>
-#include "leveldb/comparator.h"
-#include "leveldb/db.h"
-#include "leveldb/filter_policy.h"
-#include "leveldb/slice.h"
-#include "leveldb/table_builder.h"
+#include "novelsm/comparator.h"
+#include "novelsm/db.h"
+#include "novelsm/filter_policy.h"
+#include "novelsm/slice.h"
+#include "novelsm/table_builder.h"
 #include "util/coding.h"
 #include "util/logging.h"
 
-namespace leveldb {
+namespace novelsm {
 
 // Grouping of constants.  We may want to make some of these
 // parameters set via options.
@@ -225,6 +225,6 @@ inline LookupKey::~LookupKey() {
   if (start_ != space_) delete[] start_;
 }
 
-}  // namespace leveldb
+}  // namespace novelsm
 
-#endif  // STORAGE_LEVELDB_DB_DBFORMAT_H_
+#endif  // STORAGE_NOVELSM_DB_DBFORMAT_H_

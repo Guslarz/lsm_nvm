@@ -11,14 +11,14 @@
 #include "db/log_writer.h"
 #include "db/memtable.h"
 #include "db/table_cache.h"
-#include "leveldb/env.h"
-#include "leveldb/table_builder.h"
+#include "novelsm/env.h"
+#include "novelsm/table_builder.h"
 #include "table/merger.h"
 #include "table/two_level_iterator.h"
 #include "util/coding.h"
 #include "util/logging.h"
 
-namespace leveldb {
+namespace novelsm {
 
 static const int kTargetFileSize = 2 * 1048576;
 
@@ -1581,4 +1581,4 @@ void Compaction::ReleaseInputs() {
   }
 }
 
-}  // namespace leveldb
+}  // namespace novelsm

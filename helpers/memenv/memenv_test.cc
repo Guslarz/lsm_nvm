@@ -5,13 +5,13 @@
 #include "helpers/memenv/memenv.h"
 
 #include "db/db_impl.h"
-#include "leveldb/db.h"
-#include "leveldb/env.h"
+#include "novelsm/db.h"
+#include "novelsm/env.h"
 #include "util/testharness.h"
 #include <string>
 #include <vector>
 
-namespace leveldb {
+namespace novelsm {
 
 class MemEnvTest {
  public:
@@ -234,8 +234,8 @@ TEST(MemEnvTest, DBTest) {
   delete db;
 }
 
-}  // namespace leveldb
+}  // namespace novelsm
 
 int main(int argc, char** argv) {
-  return leveldb::test::RunAllTests();
+  return novelsm::test::RunAllTests();
 }

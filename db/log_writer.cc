@@ -5,11 +5,11 @@
 #include "db/log_writer.h"
 
 #include <stdint.h>
-#include "leveldb/env.h"
+#include "novelsm/env.h"
 #include "util/coding.h"
 #include "util/crc32c.h"
 
-namespace leveldb {
+namespace novelsm {
 namespace log {
 
 static void InitTypeCrc(uint32_t* type_crc) {
@@ -109,4 +109,4 @@ Status Writer::EmitPhysicalRecord(RecordType t, const char* ptr, size_t n) {
 }
 
 }  // namespace log
-}  // namespace leveldb
+}  // namespace novelsm

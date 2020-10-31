@@ -2,16 +2,16 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file. See the AUTHORS file for names of contributors.
 
-#ifndef STORAGE_LEVELDB_DB_LOG_READER_H_
-#define STORAGE_LEVELDB_DB_LOG_READER_H_
+#ifndef STORAGE_NOVELSM_DB_LOG_READER_H_
+#define STORAGE_NOVELSM_DB_LOG_READER_H_
 
 #include <stdint.h>
 
 #include "db/log_format.h"
-#include "leveldb/slice.h"
-#include "leveldb/status.h"
+#include "novelsm/slice.h"
+#include "novelsm/status.h"
 
-namespace leveldb {
+namespace novelsm {
 
 class SequentialFile;
 
@@ -108,6 +108,6 @@ class Reader {
 };
 
 }  // namespace log
-}  // namespace leveldb
+}  // namespace novelsm
 
-#endif  // STORAGE_LEVELDB_DB_LOG_READER_H_
+#endif  // STORAGE_NOVELSM_DB_LOG_READER_H_

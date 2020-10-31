@@ -17,14 +17,14 @@
 #include <unistd.h>
 #include <deque>
 #include <set>
-#include "leveldb/env.h"
-#include "leveldb/slice.h"
+#include "novelsm/env.h"
+#include "novelsm/slice.h"
 #include "port/port.h"
 #include "util/logging.h"
 #include "util/mutexlock.h"
 #include "util/posix_logger.h"
 
-namespace leveldb {
+namespace novelsm {
 
 namespace {
 
@@ -518,7 +518,7 @@ public:
             *result = env;
         } else {
             char buf[100];
-            snprintf(buf, sizeof(buf), "/mnt/pmemdir/leveldbtest-%d", int(geteuid()));
+            snprintf(buf, sizeof(buf), "/mnt/pmemdir/novelsmtest-%d", int(geteuid()));
             *result = buf;
         }
         // Directory may already exist
@@ -691,4 +691,4 @@ Env* Env::Default() {
     return default_env;
 }
 
-}  // namespace leveldb
+}  // namespace novelsm

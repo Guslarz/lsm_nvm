@@ -7,7 +7,7 @@
 #include "util/testharness.h"
 #include "util/testutil.h"
 
-namespace leveldb {
+namespace novelsm {
 
 class FindFileTest {
  public:
@@ -172,8 +172,8 @@ TEST(FindFileTest, OverlappingFiles) {
   ASSERT_TRUE(Overlaps("600", "700"));
 }
 
-}  // namespace leveldb
+}  // namespace novelsm
 
 int main(int argc, char** argv) {
-  return leveldb::test::RunAllTests();
+  return novelsm::test::RunAllTests();
 }

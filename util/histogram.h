@@ -2,12 +2,12 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file. See the AUTHORS file for names of contributors.
 
-#ifndef STORAGE_LEVELDB_UTIL_HISTOGRAM_H_
-#define STORAGE_LEVELDB_UTIL_HISTOGRAM_H_
+#ifndef STORAGE_NOVELSM_UTIL_HISTOGRAM_H_
+#define STORAGE_NOVELSM_UTIL_HISTOGRAM_H_
 
 #include <string>
 
-namespace leveldb {
+namespace novelsm {
 
 class Histogram {
  public:
@@ -37,6 +37,6 @@ class Histogram {
   double StandardDeviation() const;
 };
 
-}  // namespace leveldb
+}  // namespace novelsm
 
-#endif  // STORAGE_LEVELDB_UTIL_HISTOGRAM_H_
+#endif  // STORAGE_NOVELSM_UTIL_HISTOGRAM_H_

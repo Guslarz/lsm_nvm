@@ -18,7 +18,7 @@ SETUP() {
 }
 
 MAKE() {
-  cd $LEVELDB_VANILLA
+  cd $NOVELSM_VANILLA
   #make clean
   make -j8
 }

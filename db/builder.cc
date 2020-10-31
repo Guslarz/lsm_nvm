@@ -8,11 +8,11 @@
 #include "db/dbformat.h"
 #include "db/table_cache.h"
 #include "db/version_edit.h"
-#include "leveldb/db.h"
-#include "leveldb/env.h"
-#include "leveldb/iterator.h"
+#include "novelsm/db.h"
+#include "novelsm/env.h"
+#include "novelsm/iterator.h"
 
-namespace leveldb {
+namespace novelsm {
 
 Status BuildTable(const std::string& dbname,
                   Env* env,
@@ -85,4 +85,4 @@ Status BuildTable(const std::string& dbname,
   return s;
 }
 
-}  // namespace leveldb
+}  // namespace novelsm

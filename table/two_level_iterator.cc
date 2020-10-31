@@ -4,12 +4,12 @@
 
 #include "table/two_level_iterator.h"
 
-#include "leveldb/table.h"
+#include "novelsm/table.h"
 #include "table/block.h"
 #include "table/format.h"
 #include "table/iterator_wrapper.h"
 
-namespace leveldb {
+namespace novelsm {
 
 namespace {
 
@@ -179,4 +179,4 @@ Iterator* NewTwoLevelIterator(
   return new TwoLevelIterator(index_iter, block_function, arg, options);
 }
 
-}  // namespace leveldb
+}  // namespace novelsm

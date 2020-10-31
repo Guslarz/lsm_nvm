@@ -2,12 +2,12 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file. See the AUTHORS file for names of contributors.
 
-#include "leveldb/env.h"
+#include "novelsm/env.h"
 
 #include "port/port.h"
 #include "util/testharness.h"
 
-namespace leveldb {
+namespace novelsm {
 
 static const int kDelayMicros = 100000;
 
@@ -97,8 +97,8 @@ TEST(EnvPosixTest, StartThread) {
   ASSERT_EQ(state.val, 3);
 }
 
-}  // namespace leveldb
+}  // namespace novelsm
 
 int main(int argc, char** argv) {
-  return leveldb::test::RunAllTests();
+  return novelsm::test::RunAllTests();
 }

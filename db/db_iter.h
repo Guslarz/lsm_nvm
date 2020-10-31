@@ -2,14 +2,14 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file. See the AUTHORS file for names of contributors.
 
-#ifndef STORAGE_LEVELDB_DB_DB_ITER_H_
-#define STORAGE_LEVELDB_DB_DB_ITER_H_
+#ifndef STORAGE_NOVELSM_DB_DB_ITER_H_
+#define STORAGE_NOVELSM_DB_DB_ITER_H_
 
 #include <stdint.h>
-#include "leveldb/db.h"
+#include "novelsm/db.h"
 #include "db/dbformat.h"
 
-namespace leveldb {
+namespace novelsm {
 
 class DBImpl;
 
@@ -23,6 +23,6 @@ extern Iterator* NewDBIterator(
     SequenceNumber sequence,
     uint32_t seed);
 
-}  // namespace leveldb
+}  // namespace novelsm
 
-#endif  // STORAGE_LEVELDB_DB_DB_ITER_H_
+#endif  // STORAGE_NOVELSM_DB_DB_ITER_H_

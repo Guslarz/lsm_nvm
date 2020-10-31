@@ -2,14 +2,14 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file. See the AUTHORS file for names of contributors.
 
-#ifndef STORAGE_LEVELDB_TABLE_BLOCK_H_
-#define STORAGE_LEVELDB_TABLE_BLOCK_H_
+#ifndef STORAGE_NOVELSM_TABLE_BLOCK_H_
+#define STORAGE_NOVELSM_TABLE_BLOCK_H_
 
 #include <stddef.h>
 #include <stdint.h>
-#include "leveldb/iterator.h"
+#include "novelsm/iterator.h"
 
-namespace leveldb {
+namespace novelsm {
 
 struct BlockContents;
 class Comparator;
@@ -39,6 +39,6 @@ class Block {
   class Iter;
 };
 
-}  // namespace leveldb
+}  // namespace novelsm
 
-#endif  // STORAGE_LEVELDB_TABLE_BLOCK_H_
+#endif  // STORAGE_NOVELSM_TABLE_BLOCK_H_

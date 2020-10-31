@@ -2,13 +2,13 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file. See the AUTHORS file for names of contributors.
 
-#include "leveldb/db.h"
+#include "novelsm/db.h"
 #include "db/db_impl.h"
-#include "leveldb/cache.h"
+#include "novelsm/cache.h"
 #include "util/testharness.h"
 #include "util/testutil.h"
 
-namespace leveldb {
+namespace novelsm {
 
 class AutoCompactTest {
  public:
@@ -111,8 +111,8 @@ TEST(AutoCompactTest, ReadHalf) {
   DoReads(kCount/2);
 }
 
-}  // namespace leveldb
+}  // namespace novelsm
 
 int main(int argc, char** argv) {
-  return leveldb::test::RunAllTests();
+  return novelsm::test::RunAllTests();
 }

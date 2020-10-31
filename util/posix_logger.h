@@ -5,16 +5,16 @@
 // Logger implementation that can be shared by all environments
 // where enough posix functionality is available.
 
-#ifndef STORAGE_LEVELDB_UTIL_POSIX_LOGGER_H_
-#define STORAGE_LEVELDB_UTIL_POSIX_LOGGER_H_
+#ifndef STORAGE_NOVELSM_UTIL_POSIX_LOGGER_H_
+#define STORAGE_NOVELSM_UTIL_POSIX_LOGGER_H_
 
 #include <algorithm>
 #include <stdio.h>
 #include <sys/time.h>
 #include <time.h>
-#include "leveldb/env.h"
+#include "novelsm/env.h"
 
-namespace leveldb {
+namespace novelsm {
 
 class PosixLogger : public Logger {
  private:
@@ -93,6 +93,6 @@ class PosixLogger : public Logger {
   }
 };
 
-}  // namespace leveldb
+}  // namespace novelsm
 
-#endif  // STORAGE_LEVELDB_UTIL_POSIX_LOGGER_H_
+#endif  // STORAGE_NOVELSM_UTIL_POSIX_LOGGER_H_

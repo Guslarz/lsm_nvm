@@ -5,7 +5,7 @@
 #include "db/version_edit.h"
 #include "util/testharness.h"
 
-namespace leveldb {
+namespace novelsm {
 
 static void TestEncodeDecode(const VersionEdit& edit) {
   std::string encoded, encoded2;
@@ -39,8 +39,8 @@ TEST(VersionEditTest, EncodeDecode) {
   TestEncodeDecode(edit);
 }
 
-}  // namespace leveldb
+}  // namespace novelsm
 
 int main(int argc, char** argv) {
-  return leveldb::test::RunAllTests();
+  return novelsm::test::RunAllTests();
 }

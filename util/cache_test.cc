@@ -2,13 +2,13 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file. See the AUTHORS file for names of contributors.
 
-#include "leveldb/cache.h"
+#include "novelsm/cache.h"
 
 #include <vector>
 #include "util/coding.h"
 #include "util/testharness.h"
 
-namespace leveldb {
+namespace novelsm {
 
 // Conversions between numeric keys/values and the types expected by Cache.
 static std::string EncodeKey(int k) {
@@ -192,8 +192,8 @@ TEST(CacheTest, Prune) {
   ASSERT_EQ(-1, Lookup(2));
 }
 
-}  // namespace leveldb
+}  // namespace novelsm
 
 int main(int argc, char** argv) {
-  return leveldb::test::RunAllTests();
+  return novelsm::test::RunAllTests();
 }

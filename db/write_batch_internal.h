@@ -2,13 +2,13 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file. See the AUTHORS file for names of contributors.
 
-#ifndef STORAGE_LEVELDB_DB_WRITE_BATCH_INTERNAL_H_
-#define STORAGE_LEVELDB_DB_WRITE_BATCH_INTERNAL_H_
+#ifndef STORAGE_NOVELSM_DB_WRITE_BATCH_INTERNAL_H_
+#define STORAGE_NOVELSM_DB_WRITE_BATCH_INTERNAL_H_
 
 #include "db/dbformat.h"
-#include "leveldb/write_batch.h"
+#include "novelsm/write_batch.h"
 
-namespace leveldb {
+namespace novelsm {
 
 class MemTable;
 
@@ -44,7 +44,7 @@ class WriteBatchInternal {
   static void Append(WriteBatch* dst, const WriteBatch* src);
 };
 
-}  // namespace leveldb
+}  // namespace novelsm
 
 
-#endif  // STORAGE_LEVELDB_DB_WRITE_BATCH_INTERNAL_H_
+#endif  // STORAGE_NOVELSM_DB_WRITE_BATCH_INTERNAL_H_

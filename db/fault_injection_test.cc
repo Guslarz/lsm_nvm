@@ -6,7 +6,7 @@
 // the last "sync". It then checks for data loss errors by purposely dropping
 // file data (or entire files) not protected by a "sync".
 
-#include "leveldb/db.h"
+#include "novelsm/db.h"
 
 #include <map>
 #include <set>
@@ -14,16 +14,16 @@
 #include "db/filename.h"
 #include "db/log_format.h"
 #include "db/version_set.h"
-#include "leveldb/cache.h"
-#include "leveldb/env.h"
-#include "leveldb/table.h"
-#include "leveldb/write_batch.h"
+#include "novelsm/cache.h"
+#include "novelsm/env.h"
+#include "novelsm/table.h"
+#include "novelsm/write_batch.h"
 #include "util/logging.h"
 #include "util/mutexlock.h"
 #include "util/testharness.h"
 #include "util/testutil.h"
 
-namespace leveldb {
+namespace novelsm {
 
 static const int kValueSize = 1000;
 static const int kMaxNumValues = 2000;
@@ -50,7 +50,7 @@ Status SyncDir(const std::string& dir) {
 
 // A basic file truncation function suitable for this test.
 Status Truncate(const std::string& filename, uint64_t length) {
-  leveldb::Env* env = leveldb::Env::Default();
+  novelsm::Env* env = novelsm::Env::Default();
 
   SequentialFile* orig_file;
   Status s = env->NewSequentialFile(filename, &orig_file);
@@ -58,7 +58,7 @@ Status Truncate(const std::string& filename, uint64_t length) {
     return s;
 
   char* scratch = new char[length];
-  leveldb::Slice result;
+  novelsm::Slice result;
   s = orig_file->Read(length, &result, scratch);
   delete orig_file;
   if (s.ok()) {
@@ -547,8 +547,8 @@ TEST(FaultInjectionTest, FaultTestWithLogReuse) {
   DoTest();
 }
 
-}  // namespace leveldb
+}  // namespace novelsm
 
 int main(int argc, char** argv) {
-  return leveldb::test::RunAllTests();
+  return novelsm::test::RunAllTests();
 }

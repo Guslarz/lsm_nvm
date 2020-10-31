@@ -1,7 +1,7 @@
 <<<<<<< HEAD
 **LevelDB is a fast key-value storage library written at Google that provides an ordered mapping from string keys to string values.**
 
-[![Build Status](https://travis-ci.org/google/leveldb.svg?branch=master)](https://travis-ci.org/google/leveldb)
+[![Build Status](https://travis-ci.org/google/novelsm.svg?branch=master)](https://travis-ci.org/google/novelsm)
 
 Authors: Sanjay Ghemawat (sanjay@google.com) and Jeff Dean (jeff@google.com)
 
@@ -17,7 +17,7 @@ Authors: Sanjay Ghemawat (sanjay@google.com) and Jeff Dean (jeff@google.com)
   * External activity (file system operations etc.) is relayed through a virtual interface so users can customize the operating system interactions.
 
 # Documentation
-  [LevelDB library documentation](https://rawgit.com/google/leveldb/master/doc/index.html) is online and bundled with the source code.
+  [LevelDB library documentation](https://rawgit.com/google/novelsm/master/doc/index.html) is online and bundled with the source code.
 
 
 # Limitations
@@ -25,8 +25,8 @@ Authors: Sanjay Ghemawat (sanjay@google.com) and Jeff Dean (jeff@google.com)
   * Only a single process (possibly multi-threaded) can access a particular database at a time.
   * There is no client-server support builtin to the library.  An application that needs such support will have to wrap their own server around the library.
 
-# Contributing to the leveldb Project
-The leveldb project welcomes contributions. leveldb's primary goal is to be
+# Contributing to the novelsm Project
+The novelsm project welcomes contributions. novelsm's primary goal is to be
 a reliable and fast key/value store. Changes that are in line with the
 features/limitations outlined above, and meet the requirements below,
 will be considered.
@@ -39,7 +39,7 @@ Contribution requirements:
    exception than the rule.
 
 2. **Stable API**. We strive very hard to maintain a stable API. Changes that
-   require changes for projects using leveldb _might_ be rejected without
+   require changes for projects using novelsm _might_ be rejected without
    sufficient benefit to the project.
 
 3. **Tests**: All changes must be accompanied by a new (or changed) test, or
@@ -52,7 +52,7 @@ Contributor License Agreement (CLA) at https://cla.developers.google.com/.
 In order to keep the commit timeline linear
 [squash](https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History#Squashing-Commits)
 your changes down to a single commit and [rebase](https://git-scm.com/docs/git-rebase)
-on google/leveldb/master. This keeps the commit timeline linear and more easily sync'ed
+on google/novelsm/master. This keeps the commit timeline linear and more easily sync'ed
 with the internal repository at Google. More information at GitHub's
 [About Git rebase](https://help.github.com/articles/about-git-rebase/) page.
 
@@ -107,7 +107,7 @@ power to save its memory in the event of a power failure.
 We list the performance of reading sequentially in both the forward
 and reverse direction, and also the performance of a random lookup.
 Note that the database created by the benchmark is quite small.
-Therefore the report characterizes the performance of leveldb when the
+Therefore the report characterizes the performance of novelsm when the
 working set fits in memory.  The cost of reading a piece of data that
 is not present in the operating system buffer cache will be dominated
 by the one or two disk seeks needed to fetch the data from disk.
@@ -128,7 +128,7 @@ compactions (which are usually triggered automatically) are better.
     readreverse  :       0.663 micros/op;  166.9 MB/s
 
 Some of the high cost of reads comes from repeated decompression of blocks
-read from disk.  If we supply enough cache to the leveldb so it can hold the
+read from disk.  If we supply enough cache to the novelsm so it can hold the
 uncompressed blocks in memory, the read performance improves again:
 
     readrandom   :       9.775 micros/op;  (approximately 100,000 reads per second before compaction)
@@ -173,5 +173,5 @@ in util/env_posix.cc
 * **include/table.h, include/table_builder.h**: Lower-level modules that most
 clients probably won't use directly
 =======
-# leveldb
+# novelsm
 >>>>>>> 6c8b6b2a0fdc24c3168008f4f0d0f1e75fea37b0

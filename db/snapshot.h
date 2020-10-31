@@ -2,13 +2,13 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file. See the AUTHORS file for names of contributors.
 
-#ifndef STORAGE_LEVELDB_DB_SNAPSHOT_H_
-#define STORAGE_LEVELDB_DB_SNAPSHOT_H_
+#ifndef STORAGE_NOVELSM_DB_SNAPSHOT_H_
+#define STORAGE_NOVELSM_DB_SNAPSHOT_H_
 
 #include "db/dbformat.h"
-#include "leveldb/db.h"
+#include "novelsm/db.h"
 
-namespace leveldb {
+namespace novelsm {
 
 class SnapshotList;
 
@@ -62,6 +62,6 @@ class SnapshotList {
   SnapshotImpl list_;
 };
 
-}  // namespace leveldb
+}  // namespace novelsm
 
-#endif  // STORAGE_LEVELDB_DB_SNAPSHOT_H_
+#endif  // STORAGE_NOVELSM_DB_SNAPSHOT_H_

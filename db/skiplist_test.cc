@@ -4,13 +4,13 @@
 
 #include "db/skiplist.h"
 #include <set>
-#include "leveldb/env.h"
+#include "novelsm/env.h"
 #include "util/arena.h"
 #include "util/hash.h"
 #include "util/random.h"
 #include "util/testharness.h"
 
-namespace leveldb {
+namespace novelsm {
 
 typedef uint64_t Key;
 
@@ -371,8 +371,8 @@ TEST(SkipTest, Concurrent3) { RunConcurrent(3); }
 TEST(SkipTest, Concurrent4) { RunConcurrent(4); }
 TEST(SkipTest, Concurrent5) { RunConcurrent(5); }
 
-}  // namespace leveldb
+}  // namespace novelsm
 
 int main(int argc, char** argv) {
-  return leveldb::test::RunAllTests();
+  return novelsm::test::RunAllTests();
 }

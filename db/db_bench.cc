@@ -8,10 +8,10 @@
 #include <stdlib.h>
 #include "db/db_impl.h"
 #include "db/version_set.h"
-#include "leveldb/cache.h"
-#include "leveldb/db.h"
-#include "leveldb/env.h"
-#include "leveldb/write_batch.h"
+#include "novelsm/cache.h"
+#include "novelsm/db.h"
+#include "novelsm/env.h"
+#include "novelsm/write_batch.h"
 #include "port/port.h"
 #include "util/crc32c.h"
 #include "util/histogram.h"
@@ -118,7 +118,7 @@ static const char* FLAGS_db_disk = NULL;
 static const char* FLAGS_db_mem = NULL;
 //NoveLSM
 
-namespace leveldb {
+namespace novelsm {
 
 namespace {
 
@@ -527,9 +527,9 @@ public:
             } else if (name == Slice("heapprofile")) {
                 HeapProfile();
             } else if (name == Slice("stats")) {
-                PrintStats("leveldb.stats");
+                PrintStats("novelsm.stats");
             } else if (name == Slice("sstables")) {
-                PrintStats("leveldb.sstables");
+                PrintStats("novelsm.sstables");
             } else {
                 if (name != Slice()) {  // No error message for empty name
                     fprintf(stderr, "unknown benchmark '%s'\n", name.ToString().c_str());
@@ -823,7 +823,7 @@ private:
 
     void flush_caches() {
         //fprintf(stderr,"flushing cache");
-        //int status = system("/users/skannan/ssd/schedsp/leveldb-nvm/scripts/flushcache.sh");
+        //int status = system("/users/skannan/ssd/schedsp/novelsm-nvm/scripts/flushcache.sh");
         //fprintf(stderr,"finished flushing cache");
     }
 
@@ -1017,21 +1017,21 @@ private:
     }
 };
 
-}  // namespace leveldb
+}  // namespace novelsm
 
 
 int main(int argc, char** argv) {
 
-    FLAGS_write_buffer_size = leveldb::Options().write_buffer_size;
-    FLAGS_nvm_buffer_size = leveldb::Options().nvm_buffer_size;
-    FLAGS_open_files = leveldb::Options().max_open_files;
+    FLAGS_write_buffer_size = novelsm::Options().write_buffer_size;
+    FLAGS_nvm_buffer_size = novelsm::Options().nvm_buffer_size;
+    FLAGS_open_files = novelsm::Options().max_open_files;
     std::string default_db_path;
 
     for (int i = 1; i < argc; i++) {
         double d;
         int n;
         char junk;
-        if (leveldb::Slice(argv[i]).starts_with("--benchmarks=")) {
+        if (novelsm::Slice(argv[i]).starts_with("--benchmarks=")) {
             FLAGS_benchmarks = argv[i] + strlen("--benchmarks=");
         }
         else if (sscanf(argv[i], "--compression_ratio=%lf%c", &d, &junk) == 1) {
@@ -1081,7 +1081,7 @@ int main(int argc, char** argv) {
 
     // Choose a location for the test database if none given with --db=<path>
     if (FLAGS_db_disk == NULL) {
-        leveldb::Env::Default()->GetTestDirectory(&default_db_path);
+        novelsm::Env::Default()->GetTestDirectory(&default_db_path);
         default_db_path += "/dbbench";
         std::cout << "Default db path: " << default_db_path << "\n";
         FLAGS_db_disk = default_db_path.c_str();
@@ -1090,7 +1090,7 @@ int main(int argc, char** argv) {
         FLAGS_db_mem = FLAGS_db_disk;
     }
 
-    leveldb::Benchmark benchmark;
+    novelsm::Benchmark benchmark;
     benchmark.Run();
     return 0;
 }

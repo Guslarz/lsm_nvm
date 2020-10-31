@@ -1,5 +1,5 @@
-#ifndef STORAGE_LEVELDB_DB_SKIPLIST_H_
-#define STORAGE_LEVELDB_DB_SKIPLIST_H_
+#ifndef STORAGE_NOVELSM_DB_SKIPLIST_H_
+#define STORAGE_NOVELSM_DB_SKIPLIST_H_
 
 // Copyright (c) 2011 The LevelDB Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
@@ -35,7 +35,7 @@
 #include "port/cache_flush.h"
 
 
-namespace leveldb {
+namespace novelsm {
 
 class Arena;
 
@@ -562,8 +562,8 @@ inline void SkipList<Key,Comparator>::Iterator::SetHead(void *ptr) {
                     head_offset_ = (reinterpret_cast<void*>(arena_->CalculateOffset(static_cast<void*>(head_))));
                 }
 
-            }  // namespace leveldb
+            }  // namespace novelsm
 
-#endif  // STORAGE_LEVELDB_DB_SKIPLIST_H_
+#endif  // STORAGE_NOVELSM_DB_SKIPLIST_H_
 
 

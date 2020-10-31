@@ -6,14 +6,14 @@
 #include "db/filename.h"
 #include "db/version_set.h"
 #include "db/write_batch_internal.h"
-#include "leveldb/db.h"
-#include "leveldb/env.h"
-#include "leveldb/write_batch.h"
+#include "novelsm/db.h"
+#include "novelsm/env.h"
+#include "novelsm/write_batch.h"
 #include "util/logging.h"
 #include "util/testharness.h"
 #include "util/testutil.h"
 
-namespace leveldb {
+namespace novelsm {
 
 class RecoveryTest {
  public:
@@ -317,8 +317,8 @@ TEST(RecoveryTest, MultipleLogFiles) {
   ASSERT_EQ("there", Get("hi"));
 }
 
-}  // namespace leveldb
+}  // namespace novelsm
 
 int main(int argc, char** argv) {
-  return leveldb::test::RunAllTests();
+  return novelsm::test::RunAllTests();
 }

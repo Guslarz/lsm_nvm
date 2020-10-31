@@ -2,15 +2,15 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file. See the AUTHORS file for names of contributors.
 
-#ifndef STORAGE_LEVELDB_TABLE_BLOCK_BUILDER_H_
-#define STORAGE_LEVELDB_TABLE_BLOCK_BUILDER_H_
+#ifndef STORAGE_NOVELSM_TABLE_BLOCK_BUILDER_H_
+#define STORAGE_NOVELSM_TABLE_BLOCK_BUILDER_H_
 
 #include <vector>
 
 #include <stdint.h>
-#include "leveldb/slice.h"
+#include "novelsm/slice.h"
 
-namespace leveldb {
+namespace novelsm {
 
 struct Options;
 
@@ -52,6 +52,6 @@ class BlockBuilder {
   void operator=(const BlockBuilder&);
 };
 
-}  // namespace leveldb
+}  // namespace novelsm
 
-#endif  // STORAGE_LEVELDB_TABLE_BLOCK_BUILDER_H_
+#endif  // STORAGE_NOVELSM_TABLE_BLOCK_BUILDER_H_

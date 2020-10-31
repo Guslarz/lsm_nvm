@@ -4,11 +4,11 @@
 
 #include "table/merger.h"
 
-#include "leveldb/comparator.h"
-#include "leveldb/iterator.h"
+#include "novelsm/comparator.h"
+#include "novelsm/iterator.h"
 #include "table/iterator_wrapper.h"
 
-namespace leveldb {
+namespace novelsm {
 
 namespace {
 class MergingIterator : public Iterator {
@@ -138,7 +138,7 @@ class MergingIterator : public Iterator {
 
   // We might want to use a heap in case there are lots of children.
   // For now we use a simple array since we expect a very small number
-  // of children in leveldb.
+  // of children in novelsm.
   const Comparator* comparator_;
   IteratorWrapper* children_;
   int n_;
@@ -194,4 +194,4 @@ Iterator* NewMergingIterator(const Comparator* cmp, Iterator** list, int n) {
   }
 }
 
-}  // namespace leveldb
+}  // namespace novelsm
