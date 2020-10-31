@@ -116,7 +116,7 @@ ifneq ($(PLATFORM_SHARED_EXT),)
 SHARED_ALLOBJS := $(SHARED_LIBOBJECTS) $(SHARED_MEMENVOBJECTS) $(TESTHARNESS)
 
 ifneq ($(PLATFORM_SHARED_VERSIONED),true)
-SHARED_LIB1 = libleveldb.$(PLATFORM_SHARED_EXT)
+SHARED_LIB1 = libnovelsm.$(PLATFORM_SHARED_EXT)
 SHARED_LIB2 = $(SHARED_LIB1)
 SHARED_LIB3 = $(SHARED_LIB1)
 SHARED_LIBS = $(SHARED_LIB1)
@@ -125,7 +125,7 @@ else
 # Update db.h if you change these.
 SHARED_VERSION_MAJOR = 1
 SHARED_VERSION_MINOR = 18
-SHARED_LIB1 = libleveldb.$(PLATFORM_SHARED_EXT)
+SHARED_LIB1 = libnovelsm.$(PLATFORM_SHARED_EXT)
 SHARED_LIB2 = $(SHARED_LIB1).$(SHARED_VERSION_MAJOR)
 SHARED_LIB3 = $(SHARED_LIB1).$(SHARED_VERSION_MAJOR).$(SHARED_VERSION_MINOR)
 SHARED_LIBS = $(SHARED_OUTDIR)/$(SHARED_LIB1) $(SHARED_OUTDIR)/$(SHARED_LIB2) $(SHARED_OUTDIR)/$(SHARED_LIB3)
@@ -141,7 +141,7 @@ $(SHARED_OUTDIR)/$(SHARED_LIB3): $(SHARED_LIBOBJECTS)
 
 endif  # PLATFORM_SHARED_EXT
 
-all: $(SHARED_LIBS) $(SHARED_PROGRAMS) $(STATIC_OUTDIR)/libleveldb.a $(STATIC_OUTDIR)/libmemenv.a $(STATIC_PROGRAMS)
+all: $(SHARED_LIBS) $(SHARED_PROGRAMS) $(STATIC_OUTDIR)/libnovelsm.a $(STATIC_OUTDIR)/libmemenv.a $(STATIC_PROGRAMS)
 
 check: $(STATIC_PROGRAMS)
 	for t in $(notdir $(TESTS)); do echo "***** Running $$t"; $(STATIC_OUTDIR)/$$t || exit 1; done
@@ -261,11 +261,11 @@ $(SIMULATOR_ALLOBJS): | SIMULATOR_OBJDIRS
 $(SHARED_ALLOBJS): | SHARED_OBJDIRS
 
 ifeq ($(PLATFORM), IOS)
-$(DEVICE_OUTDIR)/libleveldb.a: $(DEVICE_LIBOBJECTS)
+$(DEVICE_OUTDIR)/libnovelsm.a: $(DEVICE_LIBOBJECTS)
 	rm -f $@
 	$(AR) -rs $@ $(DEVICE_LIBOBJECTS)
 
-$(SIMULATOR_OUTDIR)/libleveldb.a: $(SIMULATOR_LIBOBJECTS)
+$(SIMULATOR_OUTDIR)/libnovelsm.a: $(SIMULATOR_LIBOBJECTS)
 	rm -f $@
 	$(AR) -rs $@ $(SIMULATOR_LIBOBJECTS)
 
@@ -279,13 +279,13 @@ $(SIMULATOR_OUTDIR)/libmemenv.a: $(SIMULATOR_MEMENVOBJECTS)
 
 # For iOS, create universal object libraries to be used on both the simulator and
 # a device.
-$(STATIC_OUTDIR)/libleveldb.a: $(STATIC_OUTDIR) $(DEVICE_OUTDIR)/libleveldb.a $(SIMULATOR_OUTDIR)/libleveldb.a
-	lipo -create $(DEVICE_OUTDIR)/libleveldb.a $(SIMULATOR_OUTDIR)/libleveldb.a -output $@
+$(STATIC_OUTDIR)/libnovelsm.a: $(STATIC_OUTDIR) $(DEVICE_OUTDIR)/libnovelsm.a $(SIMULATOR_OUTDIR)/libnovelsm.a
+	lipo -create $(DEVICE_OUTDIR)/libnovelsm.a $(SIMULATOR_OUTDIR)/libnovelsm.a -output $@
 
 $(STATIC_OUTDIR)/libmemenv.a: $(STATIC_OUTDIR) $(DEVICE_OUTDIR)/libmemenv.a $(SIMULATOR_OUTDIR)/libmemenv.a
 	lipo -create $(DEVICE_OUTDIR)/libmemenv.a $(SIMULATOR_OUTDIR)/libmemenv.a -output $@
 else
-$(STATIC_OUTDIR)/libleveldb.a:$(STATIC_LIBOBJECTS)
+$(STATIC_OUTDIR)/libnovelsm.a:$(STATIC_LIBOBJECTS)
 	rm -f $@
 	$(AR) -rs $@ $(STATIC_LIBOBJECTS)
 
@@ -382,8 +382,8 @@ $(STATIC_OUTDIR)/version_set_test:db/version_set_test.cc $(STATIC_LIBOBJECTS) $(
 $(STATIC_OUTDIR)/write_batch_test:db/write_batch_test.cc $(STATIC_LIBOBJECTS) $(TESTHARNESS)
 	$(CXX) $(LDFLAGS) $(CXXFLAGS) db/write_batch_test.cc $(STATIC_LIBOBJECTS) $(TESTHARNESS) -o $@ $(LIBS)
 
-$(STATIC_OUTDIR)/memenv_test:$(STATIC_OUTDIR)/helpers/memenv/memenv_test.o $(STATIC_OUTDIR)/libmemenv.a $(STATIC_OUTDIR)/libleveldb.a $(TESTHARNESS)
-	$(XCRUN) $(CXX) $(LDFLAGS) $(STATIC_OUTDIR)/helpers/memenv/memenv_test.o $(STATIC_OUTDIR)/libmemenv.a $(STATIC_OUTDIR)/libleveldb.a $(TESTHARNESS) -o $@ $(LIBS)
+$(STATIC_OUTDIR)/memenv_test:$(STATIC_OUTDIR)/helpers/memenv/memenv_test.o $(STATIC_OUTDIR)/libmemenv.a $(STATIC_OUTDIR)/libnovelsm.a $(TESTHARNESS)
+	$(XCRUN) $(CXX) $(LDFLAGS) $(STATIC_OUTDIR)/helpers/memenv/memenv_test.o $(STATIC_OUTDIR)/libmemenv.a $(STATIC_OUTDIR)/libnovelsm.a $(TESTHARNESS) -o $@ $(LIBS)
 
 $(SHARED_OUTDIR)/db_bench:$(SHARED_OUTDIR)/db/db_bench.o $(SHARED_LIBS) $(TESTUTIL)
 	$(XCRUN) $(CXX) $(LDFLAGS) $(CXXFLAGS) $(PLATFORM_SHARED_CFLAGS) $(SHARED_OUTDIR)/db/db_bench.o $(TESTUTIL) $(SHARED_OUTDIR)/$(SHARED_LIB3) -o $@ $(LIBS)
