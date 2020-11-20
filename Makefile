@@ -62,10 +62,12 @@ BENCHMARKS = \
 	doc/bench/db_bench_sqlite3 \
 	doc/bench/db_bench_tree_db
 
-CFLAGS += -I. -I./include $(PLATFORM_CCFLAGS) $(OPT)
-CXXFLAGS += -I. -I./include $(PLATFORM_CXXFLAGS) $(OPT)
+CFLAGS += -I. -I./include -I./hoard/heaplayers/wrappers \
+	  $(PLATFORM_CCFLAGS) $(OPT)
+CXXFLAGS += -I. -I./include -I./hoard/heaplayers/wrappers \
+	    $(PLATFORM_CXXFLAGS) $(OPT)
 
-LDFLAGS += $(PLATFORM_LDFLAGS)
+LDFLAGS += -L./hoard $(PLATFORM_LDFLAGS)
 LIBS += $(PLATFORM_LIBS) #-lhoard -lnuma
 
 SIMULATOR_OUTDIR=out-ios-x86
@@ -142,6 +144,7 @@ $(SHARED_OUTDIR)/$(SHARED_LIB3): $(SHARED_LIBOBJECTS)
 endif  # PLATFORM_SHARED_EXT
 
 all: $(SHARED_LIBS) $(SHARED_PROGRAMS) $(STATIC_OUTDIR)/libnovelsm.a $(STATIC_OUTDIR)/libmemenv.a $(STATIC_PROGRAMS)
+	make -C ./hoard linux-gcc-x86-64
 
 check: $(STATIC_PROGRAMS)
 	for t in $(notdir $(TESTS)); do echo "***** Running $$t"; $(STATIC_OUTDIR)/$$t || exit 1; done
